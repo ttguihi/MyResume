@@ -1,17 +1,37 @@
+<!-- 新建 test_xss_filter.html -->
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-    <title>Document</title>
-</head>
+<html>
 
 <body>
-    dasdasd
+    <div
+        id="output"
+        style="font-size: 48px; color: red;"
+    >111</div>
+    <script>
+        // 让出控制权，允许浏览器渲染
+        setTimeout(() => {
+            for (let i = 0; i < 100000; i++) {
+                console.log(i)
+            }
+        }, 1000);
+    </script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const q = params.get('q') || '';
+
+        console.log('原始参数:', q);
+        console.log('参数长度:', q.length);
+
+        // 尝试输出到页面
+        document.getElementById('output').textContent =
+            '参数内容（已安全转义）: ' + q;
+
+        // 尝试不安全的innerHTML
+
+        document.body.innerHTML += '<div>测试innerHTML:</div>';
+        document.body.innerHTML += q;  // 危险操作
+
+    </script>
 </body>
 
 </html>
