@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const details = header.nextElementSibling;
             const button = header.querySelector('.toggle-btn');
-
+            console.log(1)
             details.classList.toggle('expanded');
 
             if (button) {
