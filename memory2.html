@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="button">移除列表</button>
+    <ul id="list">
+        <li>项目 1</li>
+    </ul>
+    <script type="text/javascript">
+        const button = document.querySelector('#button')
+        const list = document.querySelector('#list')
+
+        button.addEventListener('click', () => {
+            list.remove()
+        })
+    </script>
+</body>
+
+</html>

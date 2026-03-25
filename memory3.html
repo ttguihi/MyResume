@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="closure()">closure</button>
+    <script type="text/javascript">
+        const funcs = []
+        function outer() {
+            const test = new Array(1000_0000)
+            return function inner() {
+                return test
+            }
+        }
+
+        function closure() {
+            funcs.push(outer())
+        }
+    </script>
+</body>
+
+</html>
